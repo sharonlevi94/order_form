@@ -1,4 +1,5 @@
 #pragma once
-class NoDigitValidator {
+#include "Validator.h"
+class NoDigitValidator: public Validator {
 
 };

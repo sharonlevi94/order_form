@@ -8,6 +8,9 @@ class Field {
 public:
 	Field(string);
 	addValidator(Validator*);
+	int getContent()const;
 private:
+	string m_message;
+	string m_answer;
 	//Validator* m_Validator;
 };

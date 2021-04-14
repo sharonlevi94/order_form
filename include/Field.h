@@ -7,10 +7,17 @@ template< class T >
 class Field {
 public:
 	Field(string);
-	addValidator(Validator*);
-	int getContent()const;
+	void addValidator(Validator*);
+	T getContent()const;
+	string getErrorMessage();
+	string getQuestion()const;
 private:
-	string m_message;
+	string m_question;
 	string m_answer;
-	//Validator* m_Validator;
+	string m_errorMessage;
+	Validator* m_Validator;
 };
+
+template< class T >
+std::ostream& operator<<(std::ostream& os, const Field<T>& f);
+

@@ -1,2 +1,7 @@
 #pragma once
-class Validator {};
+#include <string>
+
+class Validator {
+public:
+	virtual std::string isValid() = 0;
+};

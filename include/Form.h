@@ -6,10 +6,17 @@ using std::vector;
 class Form {
 public:
 	Form();
-	void addField(Field*);
+	template<class T>
+	void addField(Field<T>*);
 	void addValidator(Validator*);
 	void fillForm();
 	bool validateForm();
+	template<class T>
+	vector<Field<T>*> getFields()const;
 private:
-	vector<Field*> m_Fields;
+	template<class T>
+	vector<Field<T>*> m_Fields;
 };
+
+
+std::ostream& operator<<(std::ostream& os, const Form& f);

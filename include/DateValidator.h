@@ -1,6 +1,12 @@
 #pragma once
 #include "Validator.h"
-class DataValidator : public Validator {
+#include <ctime>
+
+template < class T >
+class DateValidator : public Validator {
 public:
+	DateValidator();
+	virtual std::string isValid(const T& obj)const override;
 private:
+	
 };

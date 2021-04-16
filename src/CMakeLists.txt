@@ -4,5 +4,7 @@ target_sources ("order_form" PRIVATE
 						"RangeValidator.cpp"
 						"Field.cpp"
 						"Form.cpp"
+						"DateValidator.cpp"
+						"IDValidator.cpp"
 						)
 											

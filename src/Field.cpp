@@ -1,31 +1,31 @@
 #include "Field.h"
 #include <ostream>
 /*-----------------------------------------------------------------------------*/
-template<class T>
+template<typename T>
 Field<T>::Field(string question)
 	: m_question(question), 
 	  m_Validator(nullptr) {
-	m_answer = string();
+	m_answer = T();
 	m_errorMessage = string();
 }
 /*-----------------------------------------------------------------------------*/
-template<class T>
+template<typename T>
 T Field<T>::getContent()const { return this->m_answer; }
 /*-----------------------------------------------------------------------------*/
-template<class T>
+template<typename T>
 string Field<T>::getErrorMessage() {
 	m_errorMessage = m_Validator->isValid();
 }
 /*-----------------------------------------------------------------------------*/
-template<class T>
+template<typename T>
 string Field<T>::getQuestion()const { return this->m_question; }
 /*-----------------------------------------------------------------------------*/
-template<class T>
+template<typename T>
 void Field<T>::addValidator(Validator* validator) {
 	m_Validator = validator;
 }
 /*-----------------------------------------------------------------------------*/
-template<class T>
+template<typename T>
 std::ostream& operator<<(std::ostream& os, const Field<T>& f)
 {
 	os << "\n-------------------------------------------------------------------\n" 

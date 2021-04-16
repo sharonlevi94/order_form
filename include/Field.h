@@ -13,11 +13,11 @@ public:
 	string getQuestion()const;
 private:
 	string m_question;
-	string m_answer;
+	T m_answer;
 	string m_errorMessage;
 	Validator* m_Validator;
 };
 
-template< class T >
+template< typename T >
 std::ostream& operator<<(std::ostream& os, const Field<T>& f);
 

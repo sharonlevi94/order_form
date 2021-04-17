@@ -1,10 +1,11 @@
 #pragma once
 #include <string>
+#include "FieldBase.h"
 #include "Validator.h"
 using std::string;
 
 template< class T >
-class Field {
+class Field : public FieldBase {
 public:
 	Field(string);
 	void addValidator(Validator*);

@@ -28,8 +28,8 @@ void Field<T>::addValidator(Validator* validator) {
 template<typename T>
 std::ostream& operator<<(std::ostream& os, const Field<T>& f)
 {
-	os << "\n-------------------------------------------------------------------\n" 
-	<< f.getQuestion() << " = " << f.getContent() << "			" << f.m_errorMessage
-	<< "\n-------------------------------------------------------------------\n"
+	os << "\n-------------------------------------------------------------------\n"
+		<< f.getQuestion() << " = " << f.getContent() << "			" << f.m_errorMessage
+		<< "\n-------------------------------------------------------------------\n";
 		return os;
 }

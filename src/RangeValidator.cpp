@@ -6,7 +6,7 @@ RangeValidator<T>::RangeValidator(T min, T max)
 
 template< class T >
 std::string RangeValidator<T>::isValid(const T& obj)const{
-	if (!(obj > min && obj < max))
+	if (!(obj > this->m_min && obj < this->m_max))
 		return ("Out of range");
 	return "";
 }

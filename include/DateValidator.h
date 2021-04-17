@@ -1,6 +1,5 @@
 #pragma once
 #include "Validator.h"
-#include <ctime>
 
 template < class T >
 class DateValidator : public Validator {

@@ -2,7 +2,8 @@
 #include "FieldBase.h"
 #include "Field.h"
 #include <vector>
-#include "Validator.h"
+#include "RoomValidator.h"
+#include "SumValidator.h"
 using std::vector;
 /*-----------------------------------------------------------------------------*/
 class Form {
@@ -18,8 +19,8 @@ public:
 	vector<FieldBase*> getFields()const;
 	/*--------------------------------*/
 private:
-	Validator* m_RoomValidator;
-	Validator* m_SumValidator;
+	RoomValidator* m_RoomValidator;
+	SumValidator* m_SumValidator;
 	vector<FieldBase*> m_Fields;
 };
 /*-----------------------------------------------------------------------------*/

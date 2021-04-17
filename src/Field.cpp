@@ -7,6 +7,7 @@ Field<T>::Field(string question)
 	  m_Validator(nullptr) {
 	m_answer = T();
 	m_errorMessage = string();
+	this->m_isCorrect = true;
 }
 /*-----------------------------------------------------------------------------*/
 template<typename T>
@@ -15,6 +16,8 @@ T Field<T>::getContent()const { return this->m_answer; }
 template<typename T>
 string Field<T>::getErrorMessage() {
 	m_errorMessage = m_Validator->isValid();
+	if (m_errorMessage != "")
+		m_isCorrect = false;
 }
 /*-----------------------------------------------------------------------------*/
 template<typename T>

@@ -17,6 +17,7 @@ private:
 	T m_answer;
 	string m_errorMessage;
 	Validator* m_Validator;
+	bool m_isCorrect;
 };
 
 template< typename T >

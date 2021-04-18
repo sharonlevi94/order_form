@@ -18,7 +18,8 @@ void Form::addField(Field<T>* field){
 	this->m_Fields.push_back(field);
 }
 /*-----------------------------------------------------------------------------*/
-void Form::addValidator(Validator* validator){
+template <class T>
+void Form::addValidator(Validator<T>* validator){
 	if (dynamic_cast<RoomValidator*>(validator))
 		this->m_RoomValidator = dynamic_cast<RoomValidator*>(validator);
 	this->m_SumValidator = dynamic_cast<SumValidator*>(validator);
@@ -26,4 +27,4 @@ void Form::addValidator(Validator* validator){
 /*-----------------------------------------------------------------------------*/
 void Form::fillForm(){}
 /*-----------------------------------------------------------------------------*/
-bool Form::validateForm(){}
+bool Form::validateForm() { return true; }

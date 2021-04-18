@@ -1,5 +1,4 @@
 #pragma once
-#include <string>
 #include "FieldBase.h"
 #include "Validator.h"
 using std::string;
@@ -8,7 +7,7 @@ template< class T >
 class Field : public FieldBase {
 public:
 	Field(string);
-	void addValidator(Validator*);
+	void addValidator(Validator<T>*);
 	T getContent()const;
 	string getErrorMessage();
 	string getQuestion()const;
@@ -16,7 +15,7 @@ private:
 	string m_question;
 	T m_answer;
 	string m_errorMessage;
-	Validator* m_Validator;
+	Validator<T>* m_Validator;
 	bool m_isCorrect;
 };
 

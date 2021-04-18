@@ -24,7 +24,7 @@ template<typename T>
 string Field<T>::getQuestion()const { return this->m_question; }
 /*-----------------------------------------------------------------------------*/
 template<typename T>
-void Field<T>::addValidator(Validator* validator) {
+void Field<T>::addValidator(Validator<T>* validator) {
 	m_Validator = validator;
 }
 /*-----------------------------------------------------------------------------*/

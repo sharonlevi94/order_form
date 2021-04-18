@@ -1,13 +1,8 @@
 # ninja log v5
-17	1012	640333430	CMakeFiles/order_form.dir/src/Validator.cpp.obj	e581128f04d66928
-20	1034	640333430	CMakeFiles/order_form.dir/src/IDValidator.cpp.obj	c9bf6ad735950e75
-3	634	640333463	CMakeFiles/order_form.dir/src/Field.cpp.obj	c28c214f4dda78be
-5	374	640333653	CMakeFiles/order_form.dir/src/DateValidator.cpp.obj	1dfd841a0c3b8d81
-17	640	640371458	CMakeFiles/order_form.dir/src/Validator.cpp.obj	e581128f04d66928
-10	642	640371458	CMakeFiles/order_form.dir/src/DateValidator.cpp.obj	1dfd841a0c3b8d81
-21	657	640371458	CMakeFiles/order_form.dir/src/IDValidator.cpp.obj	c9bf6ad735950e75
-0	863	640371459	CMakeFiles/order_form.dir/src/Field.cpp.obj	c28c214f4dda78be
-0	344	640371510	CMakeFiles/order_form.dir/src/RangeValidator.cpp.obj	45d083d0a0010d89
-1	353	640371556	CMakeFiles/order_form.dir/src/DateValidator.cpp.obj	1dfd841a0c3b8d81
-0	894	640372382	CMakeFiles/order_form.dir/src/Field.cpp.obj	c28c214f4dda78be
-0	558	640372519	CMakeFiles/order_form.dir/src/Form.cpp.obj	f476a4aebd22448b
+13	646	640465602	CMakeFiles/order_form.dir/src/DateValidator.cpp.obj	9befe0286d22d276
+4	649	640465602	CMakeFiles/order_form.dir/src/Validator.cpp.obj	761952d44dd1cbb1
+1	657	640465602	CMakeFiles/order_form.dir/src/RangeValidator.cpp.obj	1b34352542f2da77
+17	713	640465602	CMakeFiles/order_form.dir/src/IDValidator.cpp.obj	8919c8f2ef125197
+10	937	640465602	CMakeFiles/order_form.dir/src/Field.cpp.obj	e747183b1c34ebbc
+21	991	640465602	CMakeFiles/order_form.dir/src/Form.cpp.obj	1d21b93f0f51b2f4
+7	1056	640465602	CMakeFiles/order_form.dir/src/main.cpp.obj	b194c404483c1857

@@ -12,7 +12,8 @@ public:
 	template <class T>
 	void addField(Field<T>*);
 	/*--------------------------------*/
-	void addValidator(Validator*);
+	template <class T>
+	void addValidator(Validator<T>*);
 	void fillForm();
 	bool validateForm();
 	/*--------------------------------*/

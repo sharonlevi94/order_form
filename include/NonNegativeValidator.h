@@ -4,7 +4,9 @@
 template < class T >
 class NonNegativeValidator : public Validator<T> {
 public:
-	NonNegativeValidator();
-	virtual std::string isValid(const T&)const override;
+	NonNegativeValidator() {};
+	virtual std::string isValid(const T&)const override {
+		return "";
+	};
 private:
 };

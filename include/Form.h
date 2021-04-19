@@ -9,11 +9,22 @@ using std::vector;
 class Form {
 public:
 	Form();
-	template <class T>
-	void addField(Field<T>*);
 	/*--------------------------------*/
+
 	template <class T>
-	void addValidator(Validator<T>*);
+	void addField(Field<T>* field) {
+			this->m_Fields.push_back(field);
+		};
+
+	/*--------------------------------*/
+
+	template <class T>
+	void addValidator(Validator<T>* validator) {
+		if (dynamic_cast<RoomValidator*>(validator))
+			this->m_RoomValidator = dynamic_cast<RoomValidator*>(validator);
+		this->m_SumValidator = dynamic_cast<SumValidator*>(validator);
+	};
+
 	void fillForm();
 	bool validateForm();
 	/*--------------------------------*/

@@ -1,5 +1,5 @@
 #include "RangeValidator.h"
-
+/*
 template< class T >
 RangeValidator<T>::RangeValidator(T min, T max)
 	: m_max(max), m_min(min) {}
@@ -10,3 +10,4 @@ std::string RangeValidator<T>::isValid(const T& obj)const{
 		return ("Out of range");
 	return "";
 }
+*/

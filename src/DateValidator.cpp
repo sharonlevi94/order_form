@@ -1,6 +1,6 @@
 #include "DateValidator.h"
 #include <ctime>
-
+/*
 template <class T>
 DateValidator<T>::DateValidator(){}
 
@@ -19,3 +19,4 @@ std::string DateValidator<T>::isValid(const T& obj)const {
 	int currentMonth = 1 + ltm->tm_mon;
 	int currentDay = ltm->tm_mday;
 }
+*/

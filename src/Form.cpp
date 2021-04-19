@@ -13,17 +13,21 @@ std::ostream& operator<<(std::ostream& os, const Form& f) {
 	return os;
 }
 /*-----------------------------------------------------------------------------*/
+/*
 template <typename T>
 void Form::addField(Field<T>* field){
-	this->m_Fields.push_back(field);
+	this->m_Fields.emplace_back(field);
 }
+*/
 /*-----------------------------------------------------------------------------*/
+/*
 template <class T>
 void Form::addValidator(Validator<T>* validator){
 	if (dynamic_cast<RoomValidator*>(validator))
 		this->m_RoomValidator = dynamic_cast<RoomValidator*>(validator);
 	this->m_SumValidator = dynamic_cast<SumValidator*>(validator);
 }
+*/
 /*-----------------------------------------------------------------------------*/
 void Form::fillForm(){}
 /*-----------------------------------------------------------------------------*/

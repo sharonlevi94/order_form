@@ -3,7 +3,7 @@
 
 class NoDigitValidator: public Validator<std::string> {
 public:
-	NoDigitValidator() {};
+	NoDigitValidator();
 	virtual std::string isValid(const std::string&)const override;
 private:
 };

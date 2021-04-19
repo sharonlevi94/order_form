@@ -4,7 +4,7 @@
 template < class T >
 class NotGreaterThanValidator : public Validator<T> {
 public:
-	NotGreaterThanValidator(int);
-	virtual std::string isValid(const T& obj)const override;
+	NotGreaterThanValidator(int) {};
+	virtual std::string isValid(const T& obj)const override { return ""; };
 private:
 };

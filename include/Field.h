@@ -27,11 +27,11 @@ public:
 
 	/*--------------------------------*/
 
-	string getErrorMessage() {
-		m_errorMessage = m_Validator->isValid();
-		if (m_errorMessage != "")
-			m_isCorrect = false;
-	};
+//	string getErrorMessage() {
+////		m_errorMessage = m_Validator->isValid();
+////		if (m_errorMessage != "")
+////			m_isCorrect = false;
+//	};
 
 	/*--------------------------------*/
 

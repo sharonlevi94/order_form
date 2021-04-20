@@ -7,7 +7,7 @@
 class RoomValidator : public Validator<int> {
 public:
 	RoomValidator(std::string, Field<int>*, Field<int>*, Field<int>*);
-	virtual std::string isValid(const int& obj)const override;
+	bool isValid(const int& obj)const;
 private:
 	std::string m_errorMessage;
 	std::vector<Field<int>*> m_Fields;

@@ -10,4 +10,4 @@ RoomValidator::RoomValidator(std::string errorMessage,
 	this->m_Fields.push_back(f_c);
 }
 
-std::string RoomValidator::isValid(const int& obj)const { return ""; }
+bool RoomValidator::isValid(const int& obj)const { return true; }

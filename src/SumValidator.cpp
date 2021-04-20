@@ -10,4 +10,4 @@ SumValidator::SumValidator(std::string errorMessage,
 	this->m_Fields.push_back(f_c);
 }
 
-std::string SumValidator::isValid(const int& obj)const { return ""; }
+bool SumValidator::isValid(const int& obj)const { return true; }

@@ -10,7 +10,7 @@ if (MSVC)
     add_compile_options (/permissive-)
 endif ()
 
-add_executable(order_form)
+add_executable(order_form src/NotGreaterThanValidator.cpp include/macros.h)
 
 add_subdirectory (include)
 add_subdirectory (src)

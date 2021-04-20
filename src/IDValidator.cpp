@@ -2,7 +2,7 @@
 #include <vector>
 IDValidator::IDValidator(){}
 
-std::string IDValidator::isValid(const uint32_t& id_num)const {
+bool IDValidator::isValid(const uint32_t& id_num)const {
     int int_id = int(id_num);
     std::vector<int> id;
     auto it = id.begin();

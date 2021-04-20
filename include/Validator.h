@@ -4,6 +4,9 @@
 template <class T>
 class Validator {
 public:
-	Validator(){}
-	virtual std::string isValid(const T& obj)const = 0;
+    Validator()= default;
+    virtual bool isValid(const T& obj)const = 0;
+
+private:
+    std::string m_errorMessage;
 };

@@ -7,10 +7,10 @@ public:
 	RangeValidator(T min, T max)
 		:m_max(max), m_min(min) {};
 
-	std::string isValid(const T& obj)const override {
+	bool isValid(const T& obj)const override {
 		if (!(obj > this->m_min && obj < this->m_max))
-			return ("Out of range");
-		return "";
+			return false;
+		return true;
 	};
 private:
 	T m_max, m_min;

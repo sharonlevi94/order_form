@@ -11,5 +11,8 @@ public:
             return true;
         return false;
     };
+
+    std::string getErrorMessage()const override { return "Can't be negative"; };
+    
 private:
 };

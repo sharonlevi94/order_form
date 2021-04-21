@@ -11,3 +11,5 @@ RoomValidator::RoomValidator(std::string errorMessage,
 }
 
 bool RoomValidator::isValid(const int& obj)const { return true; }
+
+std::string RoomValidator::getErrorMessage()const { return this->m_errorMessage; }

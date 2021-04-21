@@ -1,5 +1,6 @@
 #pragma once
 #include "Validator.h"
+#include <string>
 
 template < class T > 
 class RangeValidator : public Validator<T> {
@@ -12,6 +13,8 @@ public:
 			return false;
 		return true;
 	};
+
+	std::string getErrorMessage()const override { return "Out of range"; };
 private:
 	T m_max, m_min;
 };

@@ -16,3 +16,5 @@ bool SumValidator::isValid(const int& obj)const {
 		return true;
 	return false;
 }
+
+std::string SumValidator::getErrorMessage()const { return this->m_errorMessage; }

@@ -11,3 +11,5 @@ bool NoDigitValidator::isValid(const std::string& idToCheck) const {
     }
     return true;
 }
+
+std::string NoDigitValidator::getErrorMessage()const { return "Can't contain digits"; }

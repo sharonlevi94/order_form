@@ -10,6 +10,8 @@ public:
 		return obj1 <= this->m_delta;
 	};
 
+	std::string getErrorMessage()const override { return "The maximum is 10 rooms"; };
+
 private:
 	T m_delta;
 };

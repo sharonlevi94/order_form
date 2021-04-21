@@ -12,7 +12,7 @@ bool IDValidator::isValid(const uint32_t& id_num)const {
     }
 
     if (id.size() !=  9 )   // Make sure ID is formatted properly
-        return "Wrong control digit";
+        return false;
 
     int sum = 0, incNum;
     for (int i=0 ; i < id.size(); i++) {
@@ -20,6 +20,8 @@ bool IDValidator::isValid(const uint32_t& id_num)const {
         sum += (incNum > 9) ? incNum - 9 : incNum;  // Sum the digits up and add to total   
     }
     if (sum % 10 == 0)
-        return "";
-    return "Wrong control digit";
+        return true;
+    return false;
 }
+
+std::string IDValidator::getErrorMessage()const { return "Wrong control digit"; }

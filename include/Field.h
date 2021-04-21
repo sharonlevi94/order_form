@@ -11,7 +11,6 @@ public:
 		:m_question(question),
 		m_Validator(nullptr){
 		m_answer = T();
-		m_errorMessage = string();
 		this->m_isCorrect = true;
 	};
 	/*--------------------------------*/
@@ -27,21 +26,24 @@ public:
 
 	/*--------------------------------*/
 
-//	string getErrorMessage() {
-////		m_errorMessage = m_Validator->isValid();
-////		if (m_errorMessage != "")
-////			m_isCorrect = false;
-//	};
-
-	/*--------------------------------*/
-
 	string getQuestion()const { return this->m_question; };
 
 	/*--------------------------------*/
+
+	bool getIsCorrect()const { return this->m_isCorrect; };
+
+	/*--------------------------------*/
+
+	void DoValidation(const T& obj) {
+		if (!this->m_Validator->isValid(T))
+			this->m_isCorrect = false;
+	};
+
+	/*--------------------------------*/
+
 private:
 	string m_question;
 	T m_answer;
-	string m_errorMessage;
 	Validator<T>* m_Validator;
 	bool m_isCorrect;
 };
@@ -49,7 +51,9 @@ private:
 template< typename T >
 std::ostream& operator<<(std::ostream& os, const Field<T>& f) {
 	os << "\n-------------------------------------------------------------------\n"
-		<< f.getQuestion() << " = " << f.getContent() << "			" << f.m_errorMessage
+		<< f.getQuestion() << " = " << f.getContent() << "			";
+	if(!f..getIsCorrect()) 
+		os<< f.m_Validator->getErrorMessage();
 		<< "\n-------------------------------------------------------------------\n";
 	return os;
 }

@@ -1,14 +1,14 @@
 #pragma once
 #include "FieldBase.h"
 #include "Validator.h"
-#include <ostream>
+#include <iostream>
 using std::string;
 /*--------------------------------*/
 template< class T >
 class Field : public FieldBase {
 public:
 	Field(string question) 
-		:m_question(question),
+		:m_question(question.append(" = ")),
 		m_Validator(nullptr){
 		m_answer = T(),
 		m_isCorrect = false;
@@ -26,6 +26,10 @@ public:
 	};
 
 	/*--------------------------------*/
+    void setAnswer(){
+        std:: cin >> m_answer;
+    }
+    /*--------------------------------*/
 
 	string getQuestion()const { return this->m_question; };
 

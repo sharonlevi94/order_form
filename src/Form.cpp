@@ -1,5 +1,5 @@
 #include "Form.h"
-#include <ostream>
+#include <iostream>
 /*-----------------------------------------------------------------------------*/
 Form::Form()
 : m_RoomValidator(nullptr),m_SumValidator(nullptr){}
@@ -29,6 +29,12 @@ void Form::addValidator(Validator<T>* validator){
 }
 */
 /*-----------------------------------------------------------------------------*/
-void Form::fillForm(){}
+////template <class T>
+//void Form::fillForm(){
+//
+//    for (auto field : m_Fields){
+//        if (dynamic_cast<Field<>*>(field))
+//    }
+//}
 /*-----------------------------------------------------------------------------*/
 bool Form::validateForm() { return true; }

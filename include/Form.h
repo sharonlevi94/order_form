@@ -24,8 +24,25 @@ public:
 			this->m_RoomValidator = dynamic_cast<RoomValidator*>(validator);
 		this->m_SumValidator = dynamic_cast<SumValidator*>(validator);
 	};
+    /*--------------------------------*/
+    void fillForm(){
+        for (auto field : m_Fields){
+            if (dynamic_cast<Field<int>*>(field)) {
+                std::cout << dynamic_cast<Field<int>*>(field)->getQuestion(); //prints question
+                dynamic_cast<Field<int>*>(field)->setAnswer();
+            }
+            if(dynamic_cast<Field<uint32_t>*>(field)){
+                std::cout << dynamic_cast<Field<uint32_t>*>(field)->getQuestion(); //prints question
+                dynamic_cast<Field<uint32_t>*>(field)->setAnswer();
+            }
+            if(dynamic_cast<Field<std::string>*>(field)){
+                std::cout << dynamic_cast<Field<std::string>*>(field)->getQuestion(); //prints question
+                dynamic_cast<Field<std::string>*>(field)->setAnswer();
+            }
 
-	void fillForm();
+        }
+    }
+    /*--------------------------------*/
 	bool validateForm();
 	/*--------------------------------*/
 	vector<FieldBase*> getFields()const;

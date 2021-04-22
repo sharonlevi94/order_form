@@ -1,4 +1,6 @@
 #pragma once
 
 
-class FieldBase {};
+class FieldBase {
+    virtual void setAnswer() = 0;
+};

@@ -8,19 +8,19 @@
 #include <ctime>
 
 template < class T >
-class DateValidator : public Validator<T> {
+class DateValidator : public Validator< T > {
 public:
 	DateValidator() = default;
 
-	bool isValid(const T& obj)const override {
+    bool isValid(const T& obj)const override {
 		//obj = ddmmyyyy
 		int givenDate = (int)obj;
 		int givenYear = givenDate % 10000; //year = yyyy
 		givenDate /= 10000; //currentDate = ddmm
 		int givenMonth = givenDate % 100; // month = mm
-		int givenDay = givenDate /= 100; // day =  dd
+		int givenDay = givenDate / 100; // day =  dd
 
-		time_t now = time(0);
+		time_t now = time(nullptr);
 		tm* ltm = localtime(&now);
 		int currentYear = 1900 + ltm->tm_year;
 		int currentMonth = 1 + ltm->tm_mon;
@@ -51,8 +51,8 @@ public:
             }
 		}
 		return false;
-	};
-private:
+	}
+    std::string getErrorMessage()const override { return "Out of range"; };
 
 };
 

@@ -10,8 +10,9 @@ public:
 	Field(string question) 
 		:m_question(question),
 		m_Validator(nullptr){
-		m_answer = T();
-		this->m_isCorrect = true;
+		m_answer = T(),
+		m_isCorrect = false;
+//		this->m_isCorrect = true;
 	};
 	/*--------------------------------*/
 
@@ -35,8 +36,8 @@ public:
 	/*--------------------------------*/
 
 	void DoValidation(const T& obj) {
-		if (!this->m_Validator->isValid(T))
-			this->m_isCorrect = false;
+		if (this->m_Validator->isValid(obj))
+			this->m_isCorrect = true;
 	};
 
 	/*--------------------------------*/
@@ -52,9 +53,9 @@ template< typename T >
 std::ostream& operator<<(std::ostream& os, const Field<T>& f) {
 	os << "\n-------------------------------------------------------------------\n"
 		<< f.getQuestion() << " = " << f.getContent() << "			";
-	if(!f..getIsCorrect()) 
+	if(!f.getIsCorrect())
 		os<< f.m_Validator->getErrorMessage();
-		<< "\n-------------------------------------------------------------------\n";
+	os << "\n-------------------------------------------------------------------\n";
 	return os;
 }
 

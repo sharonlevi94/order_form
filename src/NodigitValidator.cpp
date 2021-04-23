@@ -1,11 +1,11 @@
 #include "NoDigitValidator.h"
-#include <ctype.h>
+//#include <ctype.h>
 
-NoDigitValidator::NoDigitValidator() {}
+NoDigitValidator::NoDigitValidator() = default;
 
-bool NoDigitValidator::isValid(const std::string& idToCheck) const {
-    for (int i = 0; i < idToCheck.length(); ++i) {
-        if (!isdigit(idToCheck[i])) {
+bool NoDigitValidator::isValid(const std::string& nameToCheck) const {
+    for (char i : nameToCheck) {
+        if (isdigit(i)) {
             return false;
         }
     }

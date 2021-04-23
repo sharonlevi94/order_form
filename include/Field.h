@@ -7,12 +7,11 @@ using std::string;
 template< class T >
 class Field : public FieldBase {
 public:
-	Field(string question) 
+	explicit Field(string question)
 		:m_question(question.append(" = ")),
 		m_Validator(nullptr){
 		m_answer = T(),
 		m_isCorrect = false;
-//		this->m_isCorrect = true;
 	};
 	/*--------------------------------*/
 
@@ -27,7 +26,7 @@ public:
 
 	/*--------------------------------*/
    
-	void setAnswer()
+	void setAnswer() override
 	{std:: cin >> m_answer;}
 
     /*--------------------------------*/
@@ -50,7 +49,7 @@ public:
 	/*--------------------------------*/
 
 	 virtual void printField()const override {
-		 std::cout << "\n-------------------------------------------------------------------------------------------\n"
+		 std::cout << "-------------------------------------------------------------------------------------------\n"
 			 << this->getQuestion() << " = " << this->getContent() << "		";
 		 if (!this->getIsCorrect())
 			 std::cout << this->m_Validator->getErrorMessage();

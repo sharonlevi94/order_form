@@ -41,7 +41,7 @@ public:
                         dayValidator = std::make_unique<RangeValidator<int>>(FirstDay, FebEnd);
                  // has 30 days:
                 }else if ((givenMonth == Apr) or (givenMonth == Jun) or (givenMonth == Sep) or (givenMonth == Nov)){
-                    dayValidator = std::make_unique<RangeValidator<int>>(FirstDay, LongMonthEnd);
+                    dayValidator = std::make_unique<RangeValidator<int>>(FirstDay, RegMonthEnd);
                 } else  // if has 31 days:
                     dayValidator = std::make_unique<RangeValidator<int>>(FirstDay, LongMonthEnd);
                 if (dayValidator->isValid(givenDay)) {

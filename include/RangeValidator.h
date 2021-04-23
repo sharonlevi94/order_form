@@ -9,9 +9,9 @@ public:
 		:m_max(max), m_min(min) {};
 
 	bool isValid(const T& obj)const override {
-		if (!(obj > this->m_min && obj < this->m_max))
-			return false;
-		return true;
+		if ((obj >= this->m_min && obj <= this->m_max))
+			return true;
+		return false;
 	};
 
 	std::string getErrorMessage()const override { return "Out of range"; };

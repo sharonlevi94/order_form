@@ -20,8 +20,10 @@ public:
 
 	template <class T>
 	void addValidator(Validator<T>* validator) {
-		if (dynamic_cast<RoomValidator*>(validator))
-			this->m_RoomValidator = dynamic_cast<RoomValidator*>(validator);
+		if (dynamic_cast<RoomValidator*>(validator)) {
+            this->m_RoomValidator = dynamic_cast<RoomValidator *>(validator);
+            return;
+		}
 		this->m_SumValidator = dynamic_cast<SumValidator*>(validator);
 	};
     /*--------------------------------*/
@@ -47,21 +49,26 @@ public:
     /*--------------------------------*/
 	
     bool validateForm() {
+        this->m_isCorrect = true;
         for (auto field : m_Fields) {
-            if (dynamic_cast<Field<int>*>(field)) {               
+            // if matches dynamic cast and field data is not valid:
+            if (dynamic_cast<Field<int>*>(field) and !dynamic_cast<Field<int>*>(field)->getIsCorrect()) {
                 dynamic_cast<Field<int>*>(field)->DoValidation(dynamic_cast<Field<int>*>(field)->getContent());
             }
-            if (dynamic_cast<Field<uint32_t>*>(field)) {
+            // if matches dynamic cast and field data is not valid:
+            if (dynamic_cast<Field<uint32_t>*>(field) and !dynamic_cast<Field<uint32_t>*>(field)->getIsCorrect()) {
                 dynamic_cast<Field<uint32_t>*>(field)->DoValidation(dynamic_cast<Field<uint32_t>*>(field)->getContent());
             }
-            if (dynamic_cast<Field<std::string>*>(field)) {
+            // if matches dynamic cast and field data is not valid:
+            if (dynamic_cast<Field<std::string>*>(field) and !dynamic_cast<Field<std::string>*>(field)->getIsCorrect()) {
                 dynamic_cast<Field<std::string>*>(field)->DoValidation(dynamic_cast<Field<std::string>*>(field)->getContent());
             }
             if (!field->getIsCorrect())
-                this->m_isCorrect = false;
-            else
-                this->m_isCorrect = true;
+                if (this->m_isCorrect)
+                    this->m_isCorrect = false;
         }
+        // need to fix room and people validators
+        if (!this->m_RoomValidator->isValid(0) and !this->m_SumValidator->isValid(0) ) this->m_isCorrect = false;
         return this->m_isCorrect;
 	};
 	/*--------------------------------*/
@@ -71,7 +78,7 @@ private:
 	RoomValidator* m_RoomValidator;
 	SumValidator* m_SumValidator;
 	vector<FieldBase*> m_Fields;
-    bool m_isCorrect;
+    bool m_isCorrect = true;
 };
 /*-----------------------------------------------------------------------------*/
 std::ostream& operator<<(std::ostream& os, const Form& f);

@@ -1,6 +1,6 @@
 #include "IDValidator.h"
 #include <vector>
-IDValidator::IDValidator(){}
+IDValidator::IDValidator()= default;
 
 bool IDValidator::isValid(const uint32_t& id_num)const {
     int int_id = int(id_num);
@@ -15,7 +15,7 @@ bool IDValidator::isValid(const uint32_t& id_num)const {
         return false;
 
     int sum = 0, incNum;
-    for (int i=id.size()-1 ; i >= 0 ; i--) {
+    for (int i = id.size()-1 ; i >= 0 ; i--) {
         incNum = id[i] * ((i % 2) + 1);  // Multiply number by 1 or 2
         sum += (incNum > 9) ? incNum - 9 : incNum;  // Sum the digits up and add to total   
     }

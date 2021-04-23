@@ -27,15 +27,18 @@ public:
 
 	/*--------------------------------*/
    
-	void setAnswer(){std:: cin >> m_answer;}
+	void setAnswer()
+	{std:: cin >> m_answer;}
 
     /*--------------------------------*/
 
-	string getQuestion()const { return this->m_question; };
+	string getQuestion()const 
+	{ return this->m_question; };
 
 	/*--------------------------------*/
 
-	bool getIsCorrect()const { return this->m_isCorrect; };
+	virtual bool getIsCorrect()const override
+	{ return this->m_isCorrect; };
 
 	/*--------------------------------*/
 
@@ -46,6 +49,16 @@ public:
 
 	/*--------------------------------*/
 
+	 virtual void printField()const override {
+		 std::cout << "\n-------------------------------------------------------------------------------------------\n"
+			 << this->getQuestion() << " = " << this->getContent() << "		";
+		 if (!this->getIsCorrect())
+			 std::cout << this->m_Validator->getErrorMessage();
+		 std::cout << "\n-------------------------------------------------------------------------------------------\n";
+	 };
+
+	/*--------------------------------*/
+
 private:
 	string m_question;
 	T m_answer;
@@ -53,13 +66,5 @@ private:
 	bool m_isCorrect;
 };
 	/*--------------------------------*/
-template< typename T >
-std::ostream& operator<<(std::ostream& os, const Field<T>& f) {
-	os << "\n-------------------------------------------------------------------\n"
-		<< f.getQuestion() << " = " << f.getContent() << "			";
-	if(!f.getIsCorrect())
-		os<< f.m_Validator->getErrorMessage();
-	os << "\n-------------------------------------------------------------------\n";
-	return os;
-}
+
 

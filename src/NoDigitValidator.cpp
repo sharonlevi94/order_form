@@ -5,7 +5,7 @@ NoDigitValidator::NoDigitValidator() {}
 
 bool NoDigitValidator::isValid(const std::string& idToCheck) const {
     for (int i = 0; i < idToCheck.length(); ++i) {
-        if (!isdigit(idToCheck[i])) {
+        if (isdigit(idToCheck[i])) {
             return false;
         }
     }

@@ -37,4 +37,10 @@ void Form::addValidator(Validator<T>* validator){
 //    }
 //}
 /*-----------------------------------------------------------------------------*/
-bool Form::validateForm() { return true; }
+/*bool Form::validateForm() {
+	for (int i = 0; i < this->m_Fields.size(); i++) {
+		this->m_Fields[i]
+	}
+	return true;
+}
+*/

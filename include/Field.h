@@ -26,9 +26,9 @@ public:
 	};
 
 	/*--------------------------------*/
-    void setAnswer(){
-        std:: cin >> m_answer;
-    }
+   
+	void setAnswer(){std:: cin >> m_answer;}
+
     /*--------------------------------*/
 
 	string getQuestion()const { return this->m_question; };
@@ -39,7 +39,7 @@ public:
 
 	/*--------------------------------*/
 
-	void DoValidation(const T& obj) {
+	 void DoValidation(const T& obj) {
 		if (this->m_Validator->isValid(obj))
 			this->m_isCorrect = true;
 	};

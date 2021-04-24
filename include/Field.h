@@ -8,7 +8,7 @@ template< class T >
 class Field : public FieldBase {
 public:
 	explicit Field(string question)
-		:m_question(question.append(" = ")),
+		:m_question(question),
 		m_Validator(nullptr){
 		m_answer = T(),
 		m_isCorrect = false;

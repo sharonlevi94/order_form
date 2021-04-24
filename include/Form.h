@@ -2,6 +2,7 @@
 #include "FieldBase.h"
 #include "Field.h"
 #include <vector>
+#include "FormValidator.h"
 #include "RoomValidator.h"
 #include "SumValidator.h"
 using std::vector;
@@ -12,20 +13,14 @@ public:
 	/*--------------------------------*/
 
 	template <class T>
-	void addField(Field<T>* field) {
-			this->m_Fields.push_back(field);
-		};
+	void addField(Field<T>* field) 
+        {this->m_Fields.push_back(field);};
 
 	/*--------------------------------*/
 
-	template <class T>
-	void addValidator(Validator<T>* validator) {
-		if (dynamic_cast<RoomValidator*>(validator)) {
-            this->m_RoomValidator = dynamic_cast<RoomValidator *>(validator);
-            return;
-		}
-		this->m_SumValidator = dynamic_cast<SumValidator*>(validator);
-	};
+	void addValidator(FormValidator* validator) 
+        {this->m_formValidators.push_back(validator);};
+
     /*--------------------------------*/
 
     void fillForm(){
@@ -46,6 +41,7 @@ public:
             }
         }
     }
+
     /*--------------------------------*/
 	
     bool validateForm() {
@@ -67,22 +63,19 @@ public:
                 if (this->m_isCorrect)
                     this->m_isCorrect = false;
         }
-        // need to fix room and people validators
-        if (!this->m_RoomValidator->isValid(0)){
-            std::cout << this->m_RoomValidator->getErrorMessage();
-            this->m_isCorrect = false;
-        }
-        if(!this->m_SumValidator->isValid(0) ){
-            std::cout << this->m_RoomValidator->getErrorMessage();
-            this->m_isCorrect = false;
-        }
 
+        for (auto form_validator : m_formValidators) 
+            if (!form_validator->isValid()) {
+                std::cout << form_validator->getErrorMessage();
+                this->m_isCorrect = false;
+            }
         return this->m_isCorrect;
 	};
 	/*--------------------------------*/
 	vector<FieldBase*> getFields()const;
 	/*--------------------------------*/
 private:
+    vector<FormValidator*> m_formValidators;
 	RoomValidator* m_RoomValidator;
 	SumValidator* m_SumValidator;
 	vector<FieldBase*> m_Fields;

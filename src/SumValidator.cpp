@@ -1,30 +1,20 @@
 #include "SumValidator.h"
 
-SumValidator::SumValidator(std::string errorMessage,
-	Field<int>* f_a,
-	Field<int>* f_b,
-	Field<int>* f_c)
-	: m_errorMessage(errorMessage){
-	this->m_Fields.push_back(f_a);
-	this->m_Fields.push_back(f_b);
-	this->m_Fields.push_back(f_c);
-}
+/*-----------------------------------------------------------------------------*/
 
-bool SumValidator::isValid(const int& obj)const {
-	if (this->m_Fields[0]->getContent() ==
-		this->m_Fields[1]->getContent() + this->m_Fields[2]->getContent())
+SumValidator::SumValidator(std::string errorMessage, Field<int>* totalPeople,
+	Field<int>* kidsUnder, Field<int>* adultAbove)
+	: FormValidator::FormValidator(errorMessage, totalPeople, kidsUnder, adultAbove) {}
+
+/*-----------------------------------------------------------------------------*/
+
+bool SumValidator::isValid()const {
+	if (this->getFields()[0]->getContent() ==
+		this->getFields()[1]->getContent() + this->getFields()[2]->getContent())
 		return true;
+
+	//set false in all relevante fields for fill them again by user:
+	for (auto field : this->getFields())
+		field->setIsCorrect(false);
 	return false;
 }
-
-//void SumValidator::printValidator() const {
-//    std::cout << "-------------------------------------------------------------------------------------------\n"
-//              << this->getQuestion() << " = " << this->getContent() << "		";
-//    if (!this->getIsCorrect())
-//        std::cout << this->m_Validator->getErrorMessage();
-//    std::cout << "\n-------------------------------------------------------------------------------------------\n";
-//
-//
-//}
-
-std::string SumValidator::getErrorMessage()const { return this->m_errorMessage; }

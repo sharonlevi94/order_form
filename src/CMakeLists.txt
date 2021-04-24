@@ -10,5 +10,6 @@ target_sources ("order_form" PRIVATE
 						"NoDigitValidator.cpp"
 						"SumValidator.cpp"
 						"RoomValidator.cpp"
+						"FormValidator.cpp"
 						)
 											

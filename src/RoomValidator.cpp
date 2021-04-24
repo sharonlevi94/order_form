@@ -1,23 +1,21 @@
 #include "RoomValidator.h"
 
-RoomValidator::RoomValidator(std::string errorMessage,
-                             Field<int>* pairRooms,
-                             Field<int>* familyRooms,
-                             Field<int>* totalPeople)
-        : m_errorMessage(errorMessage){
-         this->m_Fields.push_back(pairRooms);
-         this->m_Fields.push_back(familyRooms);
-         this->m_Fields.push_back(totalPeople);
+/*-----------------------------------------------------------------------------*/
+
+RoomValidator::RoomValidator(std::string errorMessage, Field<int>* pairRooms,
+    Field<int>* familyRooms, Field<int>* totalPeople)
+        : FormValidator::FormValidator(errorMessage, pairRooms, familyRooms, totalPeople){}
+
+/*-----------------------------------------------------------------------------*/
+
+bool RoomValidator::isValid()const{
+    int count_people_by_rooms = (this->getFields()[0]->getContent() * 2) + (this->getFields()[1]->getContent() * 5);
+    if (this->getFields()[2]->getContent() <= count_people_by_rooms)
+        return true;
+
+    //set false in all relevante fields for fill them again by user:
+    for (auto field : this->getFields())
+        field->setIsCorrect(false);
+    return false;
 }
-//          m_pairRooms(pairRooms->getContent()),
-//          m_familyRooms(familyRooms->getContent()),
-//          m_totalPeople(totalPeople->getContent()){}
 
-bool RoomValidator::isValid(const int& obj)const {
-    int count_people_by_rooms = (this->m_Fields[0]->getContent() * 2) + (this->m_Fields[1]->getContent() * 5);
-            //this->m_pairRooms*2 + this->m_familyRooms*5;
-    return this->m_Fields[2]->getContent()<= count_people_by_rooms;
-
-}
-
-std::string RoomValidator::getErrorMessage()const { return this->m_errorMessage; }

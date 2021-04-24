@@ -68,7 +68,15 @@ public:
                     this->m_isCorrect = false;
         }
         // need to fix room and people validators
-        if (!this->m_RoomValidator->isValid(0) and !this->m_SumValidator->isValid(0) ) this->m_isCorrect = false;
+        if (!this->m_RoomValidator->isValid(0)){
+            std::cout << this->m_RoomValidator->getErrorMessage();
+            this->m_isCorrect = false;
+        }
+        if(!this->m_SumValidator->isValid(0) ){
+            std::cout << this->m_RoomValidator->getErrorMessage();
+            this->m_isCorrect = false;
+        }
+
         return this->m_isCorrect;
 	};
 	/*--------------------------------*/
@@ -78,7 +86,7 @@ private:
 	RoomValidator* m_RoomValidator;
 	SumValidator* m_SumValidator;
 	vector<FieldBase*> m_Fields;
-    bool m_isCorrect = true;
+    bool m_isCorrect;
 };
 /*-----------------------------------------------------------------------------*/
 std::ostream& operator<<(std::ostream& os, const Form& f);

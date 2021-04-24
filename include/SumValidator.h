@@ -9,6 +9,8 @@ public:
 	SumValidator(std::string, Field<int>*, Field<int>*, Field<int>*);
 	virtual bool isValid(const int& obj)const override;
 	virtual std::string getErrorMessage()const override;
+//    void printValidator() const;
+
 private:
 	std::string m_errorMessage;
 	std::vector<Field<int>*> m_Fields;

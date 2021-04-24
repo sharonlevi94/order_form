@@ -1,5 +1,5 @@
 #include "RoomValidator.h"
-
+#include "macros.h"
 /*-----------------------------------------------------------------------------*/
 
 RoomValidator::RoomValidator(std::string errorMessage, Field<int>* pairRooms,
@@ -9,8 +9,8 @@ RoomValidator::RoomValidator(std::string errorMessage, Field<int>* pairRooms,
 /*-----------------------------------------------------------------------------*/
 
 bool RoomValidator::isValid(){
-    int count_people_by_rooms = (this->getFields()[0]->getContent() * 2) + (this->getFields()[1]->getContent() * 5);
-    if (this->getFields()[2]->getContent() <= count_people_by_rooms) {
+    int count_people_by_rooms = (this->getFields()[pair]->getContent() * 2) + (this->getFields()[family]->getContent() * 5);
+    if (this->getFields()[total]->getContent() <= count_people_by_rooms) {
         this->setIsCorrect(true);
         return true;
     }

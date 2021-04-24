@@ -1,4 +1,5 @@
 #include "Form.h"
+#include "macros.h"
 #include <iostream>
 /*-----------------------------------------------------------------------------*/
 
@@ -83,9 +84,12 @@ bool Form::validateForm() {
                 this->m_isCorrect = false;
     }
 
-    for (auto form_validator : m_formValidators)
+    for (auto form_validator: m_formValidators) {
+//        if (m_formValidators[0]->getFields()[people]->getIsCorrect())
+//            m_formValidators[1]->getFields()[total]->setIsCorrect(true);
         if (!form_validator->isValid())
             this->m_isCorrect = false;
+    }
 
     return this->m_isCorrect;
 }

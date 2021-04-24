@@ -14,3 +14,14 @@ constexpr auto FirstDay = 1;
 constexpr auto LongMonthEnd = 31;
 constexpr auto RegMonthEnd = 30;
 constexpr auto FebEnd = 28;
+
+constexpr auto pair = 0;
+constexpr auto family = 1;
+constexpr auto total = 2;
+
+constexpr auto people = 0;
+constexpr auto kids = 1;
+constexpr auto adults = 2;
+
+
+

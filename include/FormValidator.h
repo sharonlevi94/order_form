@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 
+
 class FormValidator {
 public:
 	FormValidator(std::string, Field<int>*, Field<int>*, Field<int>*);

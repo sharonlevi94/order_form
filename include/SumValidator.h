@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 
+
 class SumValidator : public FormValidator {
 public:
 	SumValidator(std::string, Field<int>*, Field<int>*, Field<int>*);

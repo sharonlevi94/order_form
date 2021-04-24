@@ -1,5 +1,5 @@
 #include "SumValidator.h"
-
+#include "macros.h"
 /*-----------------------------------------------------------------------------*/
 
 SumValidator::SumValidator(std::string errorMessage, Field<int>* totalPeople,
@@ -9,8 +9,8 @@ SumValidator::SumValidator(std::string errorMessage, Field<int>* totalPeople,
 /*-----------------------------------------------------------------------------*/
 
 bool SumValidator::isValid() {
-	if (this->getFields()[0]->getContent() ==
-		this->getFields()[1]->getContent() + this->getFields()[2]->getContent()) {
+	if (this->getFields()[people]->getContent() ==
+		this->getFields()[kids]->getContent() + this->getFields()[adults]->getContent()) {
 		this->setIsCorrect(true);
 		return true;
 	}

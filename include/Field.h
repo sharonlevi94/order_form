@@ -8,9 +8,9 @@ template< class T >
 class Field : public FieldBase {
 public:
 	explicit Field(string question)
-		:m_question(question),
+		:m_question(question.append(" ")),
 		m_Validator(nullptr){
-		m_answer = T(),
+		m_answer = T();
 		m_isCorrect = false;
 	};
 	/*--------------------------------*/
@@ -55,7 +55,7 @@ public:
 
 	 virtual void printField()const override {
 		 std::cout << "-------------------------------------------------------------------------------------------\n"
-			 << this->getQuestion() << " = " << this->getContent() << "		";
+			 << this->getQuestion() << "= " << this->getContent() << "		";
 		 if (!this->getIsCorrect())
 			 std::cout << this->m_Validator->getErrorMessage();
 		 std::cout << "\n-------------------------------------------------------------------------------------------\n";

@@ -14,3 +14,7 @@ FormValidator::FormValidator(std::string errorMessage,
 std::string FormValidator::getErrorMessage()const{ return this->m_errorMessage; }
 
 std::vector<Field<int>*> FormValidator::getFields()const { return this->m_Fields; }
+
+bool FormValidator::getIsCorrect()const { return this->m_isCorrect; }
+
+void FormValidator::setIsCorrect(bool update) { this->m_isCorrect = update; }

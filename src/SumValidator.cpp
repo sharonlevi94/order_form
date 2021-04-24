@@ -8,13 +8,13 @@ SumValidator::SumValidator(std::string errorMessage, Field<int>* totalPeople,
 
 /*-----------------------------------------------------------------------------*/
 
-bool SumValidator::isValid()const {
+bool SumValidator::isValid() {
 	if (this->getFields()[0]->getContent() ==
-		this->getFields()[1]->getContent() + this->getFields()[2]->getContent())
+		this->getFields()[1]->getContent() + this->getFields()[2]->getContent()) {
+		this->setIsCorrect(true);
 		return true;
+	}
 
-	//set false in all relevante fields for fill them again by user:
-	for (auto field : this->getFields())
-		field->setIsCorrect(false);
+	this->setIsCorrect(false);
 	return false;
 }

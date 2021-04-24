@@ -6,6 +6,7 @@
 #include "RoomValidator.h"
 #include "SumValidator.h"
 using std::vector;
+
 /*-----------------------------------------------------------------------------*/
 class Form {
 public:
@@ -40,6 +41,15 @@ public:
                 }
             }
         }
+
+        for (auto form_validator : m_formValidators) {
+            if (!form_validator->getIsCorrect()) {
+                for (auto field : form_validator->getFields()) {
+                    std::cout << dynamic_cast<Field<int>*>(field)->getQuestion(); //prints question
+                    dynamic_cast<Field<int>*>(field)->setAnswer(); //get new answer from user
+                }
+            }
+        }
     }
 
     /*--------------------------------*/
@@ -65,14 +75,20 @@ public:
         }
 
         for (auto form_validator : m_formValidators) 
-            if (!form_validator->isValid()) {
-                std::cout << form_validator->getErrorMessage();
+            if (!form_validator->isValid()) 
                 this->m_isCorrect = false;
-            }
+           
         return this->m_isCorrect;
 	};
+
 	/*--------------------------------*/
+
 	vector<FieldBase*> getFields()const;
+
+    /*--------------------------------*/
+
+    vector<FormValidator*> getFormValidators()const;
+
 	/*--------------------------------*/
 private:
     vector<FormValidator*> m_formValidators;
@@ -82,4 +98,5 @@ private:
     bool m_isCorrect;
 };
 /*-----------------------------------------------------------------------------*/
+
 std::ostream& operator<<(std::ostream& os, const Form& f);

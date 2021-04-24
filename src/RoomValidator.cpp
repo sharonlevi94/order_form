@@ -8,14 +8,14 @@ RoomValidator::RoomValidator(std::string errorMessage, Field<int>* pairRooms,
 
 /*-----------------------------------------------------------------------------*/
 
-bool RoomValidator::isValid()const{
+bool RoomValidator::isValid(){
     int count_people_by_rooms = (this->getFields()[0]->getContent() * 2) + (this->getFields()[1]->getContent() * 5);
-    if (this->getFields()[2]->getContent() <= count_people_by_rooms)
+    if (this->getFields()[2]->getContent() <= count_people_by_rooms) {
+        this->setIsCorrect(true);
         return true;
+    }
 
-    //set false in all relevante fields for fill them again by user:
-    for (auto field : this->getFields())
-        field->setIsCorrect(false);
+    this->setIsCorrect(false);
     return false;
 }
 

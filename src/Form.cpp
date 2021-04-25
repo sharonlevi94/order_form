@@ -51,12 +51,21 @@ void Form::fillForm() {
             }
         }
     }
+    // This bool is to avoid filling "how many people" in each validator.
+    bool needToFillPeopleField = true;
+    if (!m_formValidators[0]->getIsCorrect()) needToFillPeopleField = false;
 
     for (auto form_validator : m_formValidators) {
         if (!form_validator->getIsCorrect()) {
-            for (auto field : form_validator->getFields()) {
-                std::cout << dynamic_cast<Field<int>*>(field)->getQuestion(); //prints question
-                dynamic_cast<Field<int>*>(field)->setAnswer(); //get new answer from user
+            for (int i = 0; i < form_validator->getFields().size(); ++i) {
+                if (form_validator == m_formValidators[1] and !needToFillPeopleField) {
+                    std::cout << dynamic_cast<Field<int> *>(form_validator->getFields()[i])->getQuestion(); //prints question
+                    dynamic_cast<Field<int> *>(form_validator->getFields()[i])->setAnswer(); //get new answer from user
+                    if (i == 1) break;  //to avoid "how many people" field again
+                }else{
+                    std::cout << dynamic_cast<Field<int> *>(form_validator->getFields()[i])->getQuestion(); //prints question
+                    dynamic_cast<Field<int> *>(form_validator->getFields()[i])->setAnswer(); //get new answer from user
+                }
             }
         }
     }
@@ -85,8 +94,7 @@ bool Form::validateForm() {
     }
 
     for (auto form_validator: m_formValidators) {
-//        if (m_formValidators[0]->getFields()[people]->getIsCorrect())
-//            m_formValidators[1]->getFields()[total]->setIsCorrect(true);
+
         if (!form_validator->isValid())
             this->m_isCorrect = false;
     }
